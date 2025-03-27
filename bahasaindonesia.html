@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resensi Hotel Grand Mercure - EDUTRIP YOGYAKARTA 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #8f1414;
+            --secondary-color: #f5deb3;
+            --accent-color: #d4af37;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        header {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 30px;
+            position: relative;
+            font-weight: 500;
+        }
+
+        header a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        header a.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("grandmercurejogja.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.7) 100%);
+            animation: pulse 8s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+            animation: fadeInDown 1s both;
+            position: relative;
+            z-index: 2;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 20px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s both 0.3s;
+            position: relative;
+            z-index: 2;
+            font-weight: 300;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: float 2s infinite ease-in-out;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin: 60px 0 30px;
+            position: relative;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin: 25px 0;
+            text-align: justify;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+            animation-delay: 0.5s;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.4s ease;
+            height: 350px;
+            perspective: 1000px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            text-align: center;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .highlight {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 50px 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border-left: 5px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212,175,55,0.05) 0%, rgba(212,175,55,0.01) 100%);
+            z-index: -1;
+        }
+
+        .highlight:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .rating {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .star {
+            font-size: 2rem;
+            color: #ddd;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .star.filled {
+            color: var(--accent-color);
+        }
+
+        .star:hover {
+            transform: scale(1.2);
+        }
+
+        .comparison {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .hotel-card {
+            flex: 1;
+            min-width: 300px;
+            margin: 15px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hotel-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .hotel-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .hotel-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .hotel-card.grand-mercure {
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .hotel-card.novotel {
+            border-top: 5px solid #666;
+        }
+
+        .amenities {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .amenity {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .amenity:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            background-color: var(--secondary-color);
+        }
+
+        .amenity i {
+            margin-right: 10px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .reviewer {
+            text-align: center;
+            margin: 60px 0 30px;
+            position: relative;
+        }
+
+        .reviewer::before {
+            content: '"';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 5rem;
+            color: rgba(143, 20, 20, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .reviewer p {
+            font-style: italic;
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 0;
+            position: relative;
+        }
+
+        .reviewer .name {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 10px;
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: rgba(143, 20, 20, 0.1);
+            border-radius: 30px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 99;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background-color: #6e0f0f;
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(to top, rgba(143, 20, 20, 1), transparent);
+        }
+
+        footer p {
+            margin: 0;
+            animation: none;
+            opacity: 1;
+        }
+
+        .floating-bubble {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            z-index: -1;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            header a {
+                margin: 0 8px;
+                font-size: 16px;
+                padding: 6px 12px;
+            }
+            
+            .comparison {
+                flex-direction: column;
+            }
+            
+            .hotel-card {
+                margin: 15px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating decorative bubbles -->
+    <div class="floating-bubble" style="top: 20%; left: 5%; animation-delay: 0s;"></div>
+    <div class="floating-bubble" style="top: 60%; left: 80%; width: 150px; height: 150px; animation-delay: 1s;"></div>
+    <div class="floating-bubble" style="top: 30%; left: 70%; width: 80px; height: 80px; animation-delay: 2s;"></div>
+    <div class="floating-bubble" style="top: 80%; left: 10%; width: 120px; height: 120px; animation-delay: 3s;"></div>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="agama.html"><i class="fas fa-pray"></i> Agama</a>
+            <a href="pkn.html"><i class="fas fa-landmark"></i> PPKN</a>
+            <a href="bahasaindonesia.html" class="active"><i class="fas fa-book"></i> Bahasa Indonesia</a>
+            <a href="bahasainggris.html"><i class="fas fa-language"></i> English</a>
+            <a href="bahasamandarin.html"><i class="fas fa-language"></i> Mandarin</a>
+            <a href="ips.html"><i class="fas fa-globe-asia"></i> IPS</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1 class="animate__animated animate__fadeInDown">Resensi Hotel Grand Mercure</h1>
+        <h2 class="animate__animated animate__fadeInUp">Pengalaman Menginap di Hotel Bintang 5 Yogyakarta</h2>
+        <div class="scroll-down" onclick="smoothScroll('.content')">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <div class="content">
+        <h2 class="section-title animate__animated animate__fadeIn">Galeri Hotel</h2>
+        
+        <div class="gallery">
+            <div class="gallery-item animate__animated animate__fadeInUp">
+                <img src="grandmercurejogja.jpg" alt="Hotel Grand Mercure Yogyakarta">
+                <div class="gallery-caption">Fasad Megah Grand Mercure</div>
+            </div>
+            <div class="gallery-item animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <img src="grandmercurejogjakamar.jpg" alt="Kamar Hotel Grand Mercure">
+                <div class="gallery-caption">Kamar Mewah nan Nyaman</div>
+            </div>
+            <div class="gallery-item animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <img src="grandmercurejogjarestoran.jpg" alt="Restoran Hotel Grand Mercure">
+                <div class="gallery-caption">Restoran Kelas Internasional</div>
+            </div>
+        </div>
+
+        <h2 class="section-title animate__animated animate__fadeIn">Tentang Hotel</h2>
+        
+        <div class="highlight animate__animated animate__fadeInUp">
+            <p>Hotel Grand Mercure merupakan sebuah hotel bintang 5 yang terletak di Jalan Laksda Adisucipto No. 80, Sleman, Daerah Istimewa Yogyakarta. Hotel ini dimiliki dan dikelola oleh Sun Motor Group, yang memiliki pelayanan luar biasa, fasilitas mewah, dan lokasi strategis, sehingga menawarkan pengalaman menginap yang tak terlupakan bagi para tamu. Informasi lebih lanjut dapat di halaman daring hotel yaitu all.accor.com atau menghubungi nomor kontak (0274) 2924000. Dulunya, Hotel Grand Mercure Yogyakarta memiliki nama The Phoenix Hotel, yang didirikan pada tahun 1918. Pada tahun 2004, hotel tersebut berubah nama menjadi Grand Mercure Yogyakarta. Hotel ini memiliki 305 kamar, yang terdiri dari berbagai kelas seperti; Deluxe, Superior, Premier, Premium Superior, dan Excecutive. Hotel ini memiliki berbagai menu andalan, mulai dari gatot, lotek, kambing guling, tomato bruschetta, dan lain-lain.</p>
+        </div>
+
+        <h2 class="section-title animate__animated animate__fadeIn">Fasilitas Unggulan</h2>
+        
+        <div class="amenities">
+            <div class="amenity animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                <i class="fas fa-swimming-pool"></i> Kolam Renang
+            </div>
+            <div class="amenity animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <i class="fas fa-spa"></i> Spa & Wellness
+            </div>
+            <div class="amenity animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                <i class="fas fa-dumbbell"></i> Pusat Kebugaran
+            </div>
+            <div class="amenity animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <i class="fas fa-utensils"></i> Restoran Premium
+            </div>
+            <div class="amenity animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                <i class="fas fa-wifi"></i> WiFi Cepat
+            </div>
+            <div class="amenity animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                <i class="fas fa-parking"></i> Parkir Luas
+            </div>
+        </div>
+
+        <p class="animate__animated animate__fadeInUp">Grand Mercure Yogyakarta menyediakan banyak fasilitas seperti kolam renang yang besar, dengan pusat kebugaran dan SPA. Tidak hanya itu, hotel ini memiliki restoran dengan menu-menu kelas internasional dan juga lounge yang akan membuat tamu mendapatkan suasana yang tenang dan nyaman, sembari disuguhkan dengan minuman favorit. Terdapat sejumlah area publik yang berada di sekitar hotel, yaitu Hotel New Saphir, mall Lippo Plaza, dan juga Plaza Ambarukmo.</p>
+
+        <h2 class="section-title animate__animated animate__fadeIn">Pengalaman Menginap</h2>
+        
+        <div class="highlight animate__animated animate__fadeInUp">
+            <p>Hotel ini memiliki banyak fasilitas dan juga menyediakan lingkungan yang nyaman. Kebersihan di hotel ini tidak perlu diragukan lagi karena setiap benda dan lantai yang terdapat di area hotel ini sangat bersih. Selain itu, makanan yang disajikan pada saat makan pagi sangat higienis. Tidak hanya higienis, makanannya juga enak untuk disantap untuk memulai hari dengan aktivitas yang membutuhkan banyak energi. Benda-benda di kamar tidur juga tertata rapi sehingga membuat istirahat saya menjadi lebih nyaman. Tempat tidur selalu dibersihkan dan bertekstur empuk, sehingga meningkatkan kualitas tidur saya pada malam hari. Setiap ruangan yang berada di dalam hotel sangat sejuk sehingga meningkatkan kenyamanan melakukan berbagai aktivitas di hotel ini.</p>
+        </div>
+
+        <div class="rating animate__animated animate__fadeIn">
+            <div class="star filled"><i class="fas fa-star"></i></div>
+            <div class="star filled"><i class="fas fa-star"></i></div>
+            <div class="star filled"><i class="fas fa-star"></i></div>
+            <div class="star filled"><i class="fas fa-star"></i></div>
+            <div class="star filled"><i class="fas fa-star"></i></div>
+            <span style="margin-left: 15px; font-weight: bold; color: var(--primary-color);">5/5</span>
+        </div>
+
+        <h2 class="section-title animate__animated animate__fadeIn">Perbandingan dengan Hotel Lain</h2>
+        
+        <div class="comparison">
+            <div class="hotel-card grand-mercure animate__animated animate__fadeInLeft">
+                <h3>Grand Mercure</h3>
+                <p>Suasana modern dan terang</p>
+                <p>Variasi makanan lebih banyak</p>
+                <p>Desain interior kontemporer</p>
+                <p>Pencahayaan optimal</p>
+                <p>Area publik lebih luas</p>
+            </div>
+            <div class="hotel-card novotel animate__animated animate__fadeInRight">
+                <h3>Novotel Solo</h3>
+                <p>Suasana cenderung remang</p>
+                <p>Variasi makanan lebih sedikit</p>
+                <p>Banyak ornamen patung</p>
+                <p>Pencahayaan redup</p>
+                <p>Area publik lebih terbatas</p>
+            </div>
+        </div>
+
+        <h2 class="section-title animate__animated animate__fadeIn">Kesimpulan</h2>
+        
+        <p class="animate__animated animate__fadeInUp">Hotel ini sangat cocok bagi keluarga yang sedang berlibur, maupun pebisnis atau pekerja yang sedang bekerja di daerah Yogyakarta. Hotel ini menyediakan pengalaman berlibur yang nyaman, maupun memberikan istirahat yang berkualitas dengan kelengkapan fasilitas yang ada. Lokasi hotel yang strategis juga menyediakan akses pengunjung ke berbagai tempat publik seperti pusat perbelanjaan, bahkan rumah sakit.</p>
+
+        <div class="reviewer animate__animated animate__fadeIn">
+            <p>Sebagai seseorang yang telah menginap di berbagai hotel, Grand Mercure Yogyakarta memberikan pengalaman terbaik dengan pelayanan yang luar biasa dan fasilitas yang lengkap.</p>
+            <div class="name">Christopher S.</div>
+        </div>
+    </div>
+
+    <div class="back-to-top" id="backToTop" onclick="smoothScroll('header')">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <footer class="animate__animated animate__fadeIn">
+        <p>&copy; 2025 Christopher - Kelas 8E Santa Laurensia | Edutrip Yogyakarta</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // Smooth scrolling
+        function smoothScroll(target) {
+            $('html, body').animate({
+                scrollTop: $(target).offset().top
+            }, 800);
+        }
+
+        // Back to top button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 300) {
+                $('#backToTop').addClass('visible');
+            } else {
+                $('#backToTop').removeClass('visible');
+            }
+        });
+
+        // Animation triggers
+        $(document).ready(function() {
+            // Animate elements when they come into view
+            $(window).scroll(function() {
+                $('.animate__animated').each(function() {
+                    var position = $(this).offset().top;
+                    var scroll = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+                    
+                    if (scroll + windowHeight - 100 > position) {
+                        $(this).addClass($(this).data('animation'));
+                    }
+                });
+            }).scroll(); // Trigger immediately
+
+            // Image modal
+            $('.gallery-item img').click(function() {
+                var imgSrc = $(this).attr('src');
+                var imgAlt = $(this).attr('alt');
+                
+                $('body').append(`
+                    <div class="image-modal">
+                        <div class="modal-content">
+                            <span class="close-modal">&times;</span>
+                            <img src="${imgSrc}" alt="${imgAlt}">
+                            <div class="caption">${imgAlt}</div>
+                        </div>
+                    </div>
+                `);
+                
+                $('.close-modal, .image-modal').click(function() {
+                    $('.image-modal').remove();
+                });
+            });
+
+            // Star rating interaction
+            $('.star').click(function() {
+                $('.star').removeClass('filled');
+                $(this).addClass('filled');
+                $(this).prevAll('.star').addClass('filled');
+            });
+        });
+
+        // Floating bubbles animation
+        document.addEventListener('mousemove', function(e) {
+            const bubbles = document.querySelectorAll('.floating-bubble');
+            bubbles.forEach(bubble => {
+                const speed = bubble.getAttribute('data-speed') || 20;
+                const x = (e.clientX * speed) / 1000;
+                const y = (e.clientY * speed) / 1000;
+                bubble.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    </script>
+</body>
+</html>

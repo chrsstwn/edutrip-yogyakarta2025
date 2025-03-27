@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUTRIP YOGYAKARTA 2025 - CHRISTOPHER/8E - English</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #8f1414;
+            --secondary-color: #f5deb3;
+            --accent-color: #d4af37;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        header {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 30px;
+            position: relative;
+            font-weight: 500;
+        }
+
+        header a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        header a.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("merapi1.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.7) 100%);
+            animation: pulse 8s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+            animation: fadeInDown 1s both;
+            position: relative;
+            z-index: 2;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: var(white);
+            margin: 40px 0 20px;
+            position: relative;
+            text-align: center;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        h6 {
+            font-size: 1rem;
+            color: #666;
+            margin: 10px 0 30px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: float 2s infinite ease-in-out;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin: 25px 0;
+            text-align: justify;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+            animation-delay: 0.5s;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.4s ease;
+            height: 350px;
+            perspective: 1000px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            text-align: center;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .highlight {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 50px 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border-left: 5px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212,175,55,0.05) 0%, rgba(212,175,55,0.01) 100%);
+            z-index: -1;
+        }
+
+        .highlight:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .fact-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .fact-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .fact-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .fact-box i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .fact-box h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .mindmap-container {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .mindmap-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .mindmap-container img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 99;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background-color: #6e0f0f;
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(to top, rgba(143, 20, 20, 1), transparent);
+        }
+
+        footer p {
+            margin: 0;
+            animation: none;
+            opacity: 1;
+        }
+
+        .floating-bubble {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            z-index: -1;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .vocabulary-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 40px 0;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .vocabulary-box h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .vocabulary-item {
+            margin: 15px 0;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .vocabulary-item:last-child {
+            border-bottom: none;
+        }
+
+        .vocabulary-term {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            header a {
+                margin: 0 8px;
+                font-size: 16px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating decorative bubbles -->
+    <div class="floating-bubble" style="top: 20%; left: 5%; animation-delay: 0s;"></div>
+    <div class="floating-bubble" style="top: 60%; left: 80%; width: 150px; height: 150px; animation-delay: 1s;"></div>
+    <div class="floating-bubble" style="top: 30%; left: 70%; width: 80px; height: 80px; animation-delay: 2s;"></div>
+    <div class="floating-bubble" style="top: 80%; left: 10%; width: 120px; height: 120px; animation-delay: 3s;"></div>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="agama.html"><i class="fas fa-pray"></i> Agama</a>
+            <a href="pkn.html"><i class="fas fa-landmark"></i> PPKN</a>
+            <a href="bahasaindonesia.html"><i class="fas fa-book"></i> Bahasa Indonesia</a>
+            <a href="bahasainggris.html" class="active"><i class="fas fa-language"></i> English</a>
+            <a href="bahasamandarin.html"><i class="fas fa-language"></i> Mandarin</a>
+            <a href="ips.html"><i class="fas fa-globe-asia"></i> IPS</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1 class="animate__animated animate__fadeInDown">The Majesty of Mount Merapi</h1>
+        <h2 class="animate__animated animate__fadeInUp">Indonesia's Fiery Natural Wonder</h2>
+        <div class="scroll-down" onclick="smoothScroll('.content')">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <div class="content">
+        <h2 class="animate__animated animate__fadeIn">The Beauty of Merapi: A Majestic Wonder of Nature</h2>
+        
+        <div class="highlight animate__animated animate__fadeInUp">
+            <p>Mt. Merapi, located on the island of Java in Indonesia, is one of the most iconic and active volcanoes in the world. Known as the "Mountain of Fire," Merapi is not only a geological wonder but also a symbol of resilience and beauty. Its towering presence, lush landscapes, and dramatic history make it a must-visit destination for nature lovers, adventurers, and cultural enthusiasts alike. Whether you're drawn by its natural grandeur or the stories of the people who live in its shadow, Mt. Merapi offers an unforgettable experience.</p>
+        </div>
+
+        <div class="gallery">
+            <div class="gallery-item animate__animated animate__fadeInUp">
+                <img src="merapi1.jpg" alt="Mount Merapi eruption">
+                <div class="gallery-caption">Mount Merapi from Distance
+                </div>
+            </div>
+            <div class="gallery-item animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <img src="merapi2.jpg" alt="Mount Merapi landscape">
+                <div class="gallery-caption">The Merapi Lava Tours</div>
+            </div>
+            <div class="gallery-item animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <img src="merapi3.jpg" alt="Mount Merapi at sunrise">
+                <div class="gallery-caption">The Majestic of Mountain of Fire</div>
+            </div>
+        </div>
+
+        <h2 class="animate__animated animate__fadeIn">A Volcano That Shapes History</h2>
+        
+        <div class="highlight animate__animated animate__fadeInUp">
+            <p>Merapi's history is marked by its frequent and powerful eruptions, which have shaped both the land and the lives of those around it. One of the most significant eruptions occurred in 2010, when the volcano unleashed a massive cloud of ash and pyroclastic flows, forcing thousands to evacuate. Despite the destruction, these eruptions have also enriched the soil, making the surrounding areas incredibly fertile. The volcano's unpredictable nature adds to its mystique, reminding us of the raw power of the Earth. For scientists and adventurers alike, Merapi is a living laboratory and a testament to the dynamic forces of nature.</p>
+        </div>
+
+        <div class="fact-boxes">
+            <div class="fact-box animate__animated animate__fadeInUp">
+                <i class="fas fa-mountain"></i>
+                <h3>Height</h3>
+                <p>2,930 meters (9,610 ft) above sea level</p>
+            </div>
+            <div class="fact-box animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <i class="fas fa-fire"></i>
+                <h3>Activity</h3>
+                <p>One of the world's most active volcanoes</p>
+            </div>
+            <div class="fact-box animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Last Eruption</h3>
+                <p>March 2023 (ongoing activity)</p>
+            </div>
+            <div class="fact-box animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                <i class="fas fa-users"></i>
+                <h3>Nearby Population</h3>
+                <p>Over 1 million people live within 30km</p>
+            </div>
+        </div>
+
+        <h2 class="animate__animated animate__fadeIn">Life in the Shadow of the Volcano</h2>
+        
+        <div class="highlight animate__animated animate__fadeInUp">
+            <p>The villagers living around Mt. Merapi have learned to thrive in harmony with the volcano. They rely on the fertile volcanic soil to cultivate crops like rice, vegetables, and coffee, which are known for their exceptional quality. Many locals also work in tourism, guiding visitors to explore Merapi's beauty and sharing their deep knowledge of the volcano's history and culture. Traditional practices, such as sustainable farming and spiritual rituals, reflect their respect for the mountain and its power. The resilience and adaptability of these communities are truly inspiring, showcasing how humans can coexist with even the most formidable natural forces.</p>
+        </div>
+
+        <div class="vocabulary-box animate__animated animate__fadeInUp">
+            <h3>Vocabulary Builder</h3>
+            <div class="vocabulary-item">
+                <span class="vocabulary-term">Pyroclastic flow</span> - A fast-moving current of hot gas and volcanic matter that flows down the slope of a volcano
+            </div>
+            <div class="vocabulary-item">
+                <span class="vocabulary-term">Fertile</span> - (Of soil or land) producing or capable of producing abundant vegetation or crops
+            </div>
+            <div class="vocabulary-item">
+                <span class="vocabulary-term">Resilience</span> - The capacity to recover quickly from difficulties; toughness
+            </div>
+            <div class="vocabulary-item">
+                <span class="vocabulary-term">Ecotourism</span> - Tourism directed toward exotic, often threatened, natural environments to support conservation efforts
+            </div>
+        </div>
+
+        <h2 class="animate__animated animate__fadeIn">Experiencing Merapi's Wonders</h2>
+        
+        <div class="highlight animate__animated animate__fadeInUp">
+            <p>For visitors, Mt. Merapi offers a wide range of activities that highlight its natural and cultural richness. Adventurers can hike to the summit for breathtaking views or explore the lava trails left by past eruptions. The Kaliadem bunker, a remnant of the 2010 eruption, serves as a stark reminder of the volcano's power and is a popular spot for learning about its history. The surrounding forests are home to diverse wildlife, including deer, monkeys, and various bird species, making it a great destination for nature enthusiasts. Ecotourism activities like birdwatching, photography, and cultural tours allow visitors to immerse themselves in the beauty of Merapi while supporting local communities.</p>
+        </div>
+
+        <div class="mindmap-container animate__animated animate__fadeInUp">
+            <img src="Screenshot 2025-03-21 144107.png" alt="Edutrip Travel Article Mindmap">
+            <h6>Edutrip Travel Article Mindmap</h6>
+        </div>
+
+        <h2 class="animate__animated animate__fadeIn">A Natural Treasure</h2>
+        
+        <div class="highlight animate__animated animate__fadeInUp">
+            <p>In conclusion, Mt. Merapi is more than just a volcano; it is a living, breathing testament to the beauty and power of nature. From its dramatic eruption history to the resilient communities that call it home, Merapi offers a unique blend of adventure, culture, and natural wonder. Whether you're hiking its slopes, learning about its history, or simply marveling at its majestic presence, a visit to Mt. Merapi is an experience that will stay with you forever. This "Mountain of Fire" is a true gem of Indonesia, waiting to be explored and appreciated.</p>
+        </div>
+
+        <div class="reviewer animate__animated animate__fadeIn">
+            <p>"Visiting Mount Merapi was the most awe-inspiring experience of my life. The raw power of nature combined with the warmth of local communities created memories I'll cherish forever."</p>
+            <div class="name">Christopher S.</div>
+        </div>
+    </div>
+
+    <div class="back-to-top" id="backToTop" onclick="smoothScroll('header')">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <footer class="animate__animated animate__fadeIn">
+        <p>&copy; 2025 Christopher - Kelas 8E Santa Laurensia | Edutrip Yogyakarta</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // Smooth scrolling
+        function smoothScroll(target) {
+            $('html, body').animate({
+                scrollTop: $(target).offset().top
+            }, 800);
+        }
+
+        // Back to top button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 300) {
+                $('#backToTop').addClass('visible');
+            } else {
+                $('#backToTop').removeClass('visible');
+            }
+        });
+
+        // Animation triggers
+        $(document).ready(function() {
+            // Animate elements when they come into view
+            $(window).scroll(function() {
+                $('.animate__animated').each(function() {
+                    var position = $(this).offset().top;
+                    var scroll = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+                    
+                    if (scroll + windowHeight - 100 > position) {
+                        $(this).addClass($(this).data('animation'));
+                    }
+                });
+            }).scroll(); // Trigger immediately
+
+            // Image modal
+            $('.gallery-item img, .mindmap-container img').click(function() {
+                var imgSrc = $(this).attr('src');
+                var imgAlt = $(this).attr('alt');
+                var caption = $(this).siblings('.gallery-caption').text() || imgAlt;
+                
+                $('body').append(`
+                    <div class="image-modal">
+                        <div class="modal-content">
+                            <span class="close-modal">&times;</span>
+                            <img src="${imgSrc}" alt="${imgAlt}">
+                            <div class="caption">${caption}</div>
+                        </div>
+                    </div>
+                `);
+                
+                $('.close-modal, .image-modal').click(function() {
+                    $('.image-modal').remove();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
